@@ -1,0 +1,12 @@
+<tui-loader
+    *ngIf="loading$ | async"
+    class="inline-flex tui-space_right-2"
+    [showLoader]="true"
+    [inheritColor]="true"
+    [overlay]="true"
+></tui-loader>
+
+<ngxs-demo-post-item
+    *ngFor="let post of posts$ | async"
+    [post]="post"
+></ngxs-demo-post-item>

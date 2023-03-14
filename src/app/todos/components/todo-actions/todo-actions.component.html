@@ -1,0 +1,16 @@
+<button
+    tuiButton
+    appearance="primary"
+    (click)="todosService.openCreationDialog()"
+>
+    Создать TODO
+</button>
+
+<button
+    tuiButton
+    appearance="secondary"
+    (click)="todosService.fetchTodos()"
+>
+    Перезапросить
+</button>
+

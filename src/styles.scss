@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.t-bar_vertical {
+    top: 4rem !important;
+}
+
+a {
+    color: var(--tui-text-01);
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &.active,
+    &:hover {
+        color: var(--tui-link);
+    }
+}

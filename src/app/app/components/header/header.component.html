@@ -1,0 +1,21 @@
+<header class="header">
+    <nav>
+        <a
+            *ngFor="let item of menuItems"
+            [routerLink]="item.path"
+            routerLinkActive="active"
+            class="tui-text_body-l"
+        >
+            {{ item.title }}
+        </a>
+    </nav>
+
+    <div class="account">
+        <a
+            class="tui-text_body-l"
+            (click)="auth.logout()"
+        >
+            Выйти
+        </a>
+    </div>
+</header>

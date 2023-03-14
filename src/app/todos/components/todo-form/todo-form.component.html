@@ -1,0 +1,52 @@
+<h3 class="tui-form__header tui-form__header_margin-top_none">
+    {{ isEditing ? 'Редактирование' : 'Создание' }} TODO
+</h3>
+
+<form *ngIf="useStore; else noStore" [formGroup]="todoForm" ngxsForm="todoForm" (ngSubmit)="submit()">
+    <div class="tui-form__row">
+        <tui-input formControlName="title">
+            Текст задачи <span class="tui-required"></span>
+        </tui-input>
+        <tui-error formControlName="title" [error]="[] | tuiFieldError | async"></tui-error>
+    </div>
+
+    <div class="tui-form__row">
+        <tui-select formControlName="status">
+            Статус
+            <input tuiTextfield/>
+            <tui-data-list-wrapper *tuiDataList [items]="TODO_STATUSES"></tui-data-list-wrapper>
+        </tui-select>
+        <tui-error formControlName="status" [error]="[] | tuiFieldError | async"></tui-error>
+    </div>
+
+    <div class="tui-form__buttons tui-form__buttons_align_end">
+        <button tuiButton appearance="secondary-destructive" size="l" (click)="reset()">Сброс</button>
+        <button tuiButton appearance="flat" size="l" (click)="close()">Закрыть</button>
+        <button tuiButton size="l" type="submit" [showLoader]="loading">Отправить</button>
+    </div>
+</form>
+
+<ng-template #noStore>
+    <form [formGroup]="todoForm" (ngSubmit)="submit()">
+        <div class="tui-form__row">
+            <tui-input formControlName="title">
+                Текст задачи <span class="tui-required"></span>
+            </tui-input>
+            <tui-error formControlName="title" [error]="[] | tuiFieldError | async"></tui-error>
+        </div>
+
+        <div class="tui-form__row">
+            <tui-select formControlName="status">
+                Статус
+                <input tuiTextfield/>
+                <tui-data-list-wrapper *tuiDataList [items]="TODO_STATUSES"></tui-data-list-wrapper>
+            </tui-select>
+            <tui-error formControlName="status" [error]="[] | tuiFieldError | async"></tui-error>
+        </div>
+
+        <div class="tui-form__buttons tui-form__buttons_align_end">
+            <button tuiButton appearance="flat" size="l" (click)="close()">Закрыть</button>
+            <button tuiButton size="l" type="submit" [showLoader]="loading">Отправить</button>
+        </div>
+    </form>
+</ng-template>

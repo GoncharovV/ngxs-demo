@@ -1,0 +1,28 @@
+<tui-island size="l">
+    <tui-primitive-checkbox [value]="todo.completed" (click)="todo.completed = !todo.completed" size="l"></tui-primitive-checkbox>
+
+    <p class="tui-island__paragraph">{{ todo.title }}</p>
+
+    <button
+        tuiIconButton
+        type="button"
+        appearance="outline"
+        class="tui-space_right-3 tui-space_bottom-3"
+        icon="tuiIconEdit"
+        (click)="todosService.openEditDialog(todo)"
+    >
+    </button>
+
+    <button
+        tuiIconButton
+        type="button"
+        appearance="secondary-destructive"
+        class="tui-space_right-3 tui-space_bottom-3"
+        icon="tuiIconTrash"
+        (click)="todosService.confirmAndDeleteById(todo.id)"
+    >
+    </button>
+</tui-island>
+
+
+
